@@ -8,4 +8,4 @@ RUN apt-get update \
      && echo 'Asia/Shanghai' >/etc/timezone 
 COPY . /app
 RUN chmod 777 /app/*
-ENTRYPOINT ["bash", "onewarpmode.sh"]
+ENTRYPOINT ["bash", "dockeronewarpmode.sh"]
