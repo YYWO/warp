@@ -1,4 +1,4 @@
-FROM Alpine
+FROM debian:latest
 WORKDIR /app
 EXPOSE 30000
 RUN apt-get update \
