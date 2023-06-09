@@ -205,13 +205,13 @@ then
 	rm -rf gost warp warp-cli warp-svc warp.sh ip.txt result.csv
 	unzip warp.zip
 	chmod +x warp warp-svc warp-cli gost
-	screen -S warp-status -X quit
+	warp-status -X quit
 	./warp-cli disconnect
 	sleep 3
-	screen -S warp-svc -X quit
-	screen -dmS warp-svc ./warp-svc
-	screen -S gost -X quit
-	screen -dmS gost ./gost -L=:$port
+	warp-svc -X quit
+	warp-svc ./warp-svc
+	gost -X quit
+	gost ./gost -L=:$port
 	echo 等待WARP-SVC完全启动
 	sleep 3
 	yes | ./warp-cli status
@@ -251,11 +251,11 @@ then
 	done
 elif [ $mode == 2 ]
 then
-	screen -S warp-status -X quit
+	warp-status -X quit
 	./warp-cli disconnect
 	sleep 3
-	screen -S warp-svc -X quit
-	screen -S gost -X quit
+	warp-svc -X quit
+	gost -X quit
 	rm -rf gost warp warp-cli warp-svc warp.zip warp.sh ip.txt result.csv
 	exit
 else
@@ -437,5 +437,5 @@ do
 	fi
 done
 EOF
-screen -S warp-status -X quit >/dev/null 2>&1
-screen -dmS warp-status bash warp.sh
+warp-status -X quit >/dev/null 2>&1
+warp-status bash warp.sh
